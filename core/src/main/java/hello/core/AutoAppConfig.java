@@ -15,12 +15,10 @@ import org.springframework.stereotype.Component;
 )
 public class AutoAppConfig {
 
-    /*
-    스프링부트 자체 내에서 체크를 함
-    @Bean(name = "memoryMemberRepository")
-    MemoryMemberRepository memoryMemberRepository() {
-        return new MemoryMemberRepository();
-    }
-     */
+    //스프링부트 자체 내에서 체크를 함
+//    @Bean(name = "memoryMemberRepository")
+//    MemoryMemberRepository memoryMemberRepository() {
+//        return new MemoryMemberRepository();
+//    }
 
 }
