@@ -6,17 +6,17 @@ import org.springframework.stereotype.Repository;
 
 //엔티티 같은걸 찾아주는 역할 (DAO와 비슷)
 @Repository
-public class MemberRepository {
+public class MemberRepositoryCheck {
 
     @PersistenceContext
     private EntityManager em;
 
-    public Long save(Member member) {
-        em.persist(member);
-        return member.getId();
+    public Long save(MemberCheck memberCheck) {
+        em.persist(memberCheck);
+        return memberCheck.getId();
     }
 
-    public Member find(Long id) {
-        return em.find(Member.class, id);
+    public MemberCheck find(Long id) {
+        return em.find(MemberCheck.class, id);
     }
 }

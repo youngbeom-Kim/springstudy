@@ -1,6 +1,5 @@
 package jpabook.jpashop;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +10,10 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest //이 어노테이션이 없으면 멤버값이 들어가지 않아서 NPE오류 발생
-class MemberRepositoryTest {
+class MemberCheckRepositoryCheckTest {
 
-    @Autowired MemberRepository memberRepository;
+    @Autowired
+    MemberRepositoryCheck memberRepositoryCheck;
     
     @Test
     @Transactional //이 어노테이션이 있을 경우 테스트 후에 전부 Rollback 시켜버림
@@ -21,18 +21,18 @@ class MemberRepositoryTest {
     @DisplayName("멤버가 잘 저장됐는지 확인")
     void testMember() {
         //given
-        Member member = new Member();
-        member.setUsername("memberA");
+        MemberCheck memberCheck = new MemberCheck();
+        memberCheck.setUsername("memberA");
         
         //when
-        Long saveId = memberRepository.save(member);
-        Member findMember = memberRepository.find(saveId);
+        Long saveId = memberRepositoryCheck.save(memberCheck);
+        MemberCheck findMemberCheck = memberRepositoryCheck.find(saveId);
 
         //then
-        assertThat(findMember.getId()).isEqualTo(member.getId());
-        assertThat(findMember.getUsername()).isEqualTo(member.getUsername());
-        assertThat(findMember).isEqualTo(member);
-        System.out.println("findMember == member: " + (findMember == member));
+        assertThat(findMemberCheck.getId()).isEqualTo(memberCheck.getId());
+        assertThat(findMemberCheck.getUsername()).isEqualTo(memberCheck.getUsername());
+        assertThat(findMemberCheck).isEqualTo(memberCheck);
+        System.out.println("findMember == member: " + (findMemberCheck == memberCheck));
     }
 
 }
