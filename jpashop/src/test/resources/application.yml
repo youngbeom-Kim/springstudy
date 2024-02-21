@@ -1,0 +1,23 @@
+spring:
+#  datasource:
+#    url: jdbc:h2:mem:test
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa:
+#    hibernate:
+#      ddl-auto: create      #애플리케이션 실행 시점에 가지고 있던 테이블을 전부 지우고 다시 생성
+#                create-drop #만든뒤에 완벽하게 데이터를 드랍시킨다.
+#    properties:
+#      hibernate:
+#        show_sql: true #logger로 찍기 때문에 사용 안함#        format_sql: true
+## SpringBoot에 있는 yml 셋팅은 없어도 알아서 메모리db를 사용한다.
+
+logging:
+  level:
+    org.hibernate.SQL: debug  #Hibernate가 생성하는 SQL문을 전부 로그로 남겨줌
+    org.hibernate.orm.jdbc.bind: trace
+
+server:
+  port: 8090
