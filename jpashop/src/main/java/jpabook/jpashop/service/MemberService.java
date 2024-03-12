@@ -44,7 +44,7 @@ public class MemberService {
 
     //회원 전체 조회
     //@Transactional(readOnly = true) //조회하는 메서드에서는 좀 더 최적화 되어 있음
-    public List<Member> findAll() {
+    public List<Member> findMembers() {
         return memberRepository.findAll();
     }
 
